@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThinkSum AI</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="chatbot.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  
+  <header class="header">
+    
+    <h1 class="title" id="greeting">Hello User</h1>
+    <p class="subtitle">How can I help you today?</p>
+
+
+    <ul class="suggestion-list">
+      <li class="suggestion">
+        <h4 class="text">Help me plan a game night with my 5 best friends for under $100.</h4>
+        <span class="icon material-symbols-rounded">draw</span>
+      </li>
+      <li class="suggestion">
+        <h4 class="text">What are the best tips to improve my public speaking skills?</h4>
+        <span class="icon material-symbols-rounded">lightbulb</span>
+      </li>
+      <li class="suggestion">
+        <h4 class="text">Can you help me find the latest news on web development?</h4>
+        <span class="icon material-symbols-rounded">explore</span>
+      </li>
+      <li class="suggestion">
+        <h4 class="text">Write JavaScript code to sum all elements in an array.</h4>
+        <span class="icon material-symbols-rounded">code</span>
+      </li>
+    </ul>
+  </header>
+
+
+  <div class="chat-list"></div>
+
+
+  <div class="typing-area">
+    <form action="#" class="typing-form">
+      <div class="input-wrapper">
+        <input type="text" placeholder="Enter a prompt here" class="typing-input" required />
+        <button id="send-message-button" class="icon material-symbols-rounded">send</button>
+      </div>
+      <div class="action-buttons">
+        <span id="theme-toggle-button" class="icon material-symbols-rounded">light_mode</span>
+        <span id="delete-chat-button" class="icon material-symbols-rounded">delete</span>
+      </div>
+    </form>
+    <p class="disclaimer-text">
+     ThinkSum AI may display inaccurate info, including about people, so double-check its responses.
+    </p>
+  </div>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus icon'></i>
+        <div class="logo_name">CodingLab</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      
+      <li>
+       <a href="chatbot.html">
+        <i class='bx bx-plus'></i>
+         <span class="links_name">new chat</span>
+       </a>
+       <span class="tooltip">new Chat</span>
+     </li>
+<br><br><br><br><br><br><br><br>
+     <li>
+       <a href="Help.html">
+        <i class='bx bx-question-mark' ></i>
+         <span class="links_name">Help</span>
+       </a>
+       <span class="tooltip">Help</span>
+     </li>
+     <li>
+       <a href="#">
+        <i class='bx bx-time' ></i>
+         <span class="links_name">Activity</span>
+       </a>
+       <span class="tooltip">Activity</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-cog' ></i>
+         <span class="links_name">Setting</span>
+       </a>
+       <span class="tooltip">Setting</span>
+     </li>
+     <li class="profile">
+        <a href="login.html">
+         <i class='bx bx-log-out' id="log_out" ></i></a>
+     </li>
+    </ul>
+  </div>
+
+  <script>
+  let sidebar = document.querySelector(".sidebar");
+  let closeBtn = document.querySelector("#btn");
+  let searchBtn = document.querySelector(".bx-search");
+ 
+
+  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+    sidebar.classList.toggle("open");
+    menuBtnChange(); //calling the function(optional)
+  });
+  // following are the code to change sidebar button(optional)
+  function menuBtnChange() {
+   if(sidebar.classList.contains("open")){
+     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+   }else {
+     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+   }
+  }
+  const username = localStorage.getItem('username');
+  if (username) {
+      document.getElementById('greeting').textContent = `Hello, ${username}`;
+  } else {
+      document.getElementById('greeting').textContent = 'Hello, Guest';
+  }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
